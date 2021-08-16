@@ -4,10 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-let myColor = localStorage.getItem('myColor') ? localStorage.getItem('myColor'): "red";
-const ColorContext = React.createContext(myColor);
+const ColorContext = React.createContext(localStorage.getItem('myColor'));
 function ChangeColor(){
-    const [color, setColor] = React.useState(myColor);
+    const [color, setColor] = React.useState(localStorage.getItem('myColor'));
     
     const handleChange = (e) => {
         setColor(e.currentTarget.value) 
@@ -21,7 +20,7 @@ function ChangeColor(){
                 onChange = {handleChange}
             >
                 <option value="red">red</option>
-                <option value="green" defaultValue>green</option>
+                <option value="green">green</option>
                 <option value="yellow">yellow</option>
             
             </select>
